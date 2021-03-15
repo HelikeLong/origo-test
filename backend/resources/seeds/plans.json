@@ -1,0 +1,5 @@
+[
+    { "name": "Free", "price": "0.00" },
+    { "name": "Basic", "price": "100.00" },
+    { "name": "Plus", "price": "187.00" }
+]

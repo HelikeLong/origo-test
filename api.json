@@ -1,0 +1,328 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Origo - API Documentation",
+    "version": "1.0.0",
+    "title": "Origo - Test"
+  },
+  "host": "localhost",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Clients"
+    },
+    {
+      "name": "Plans"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/clients": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Add a new client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Client informations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Client_Data"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "List clients",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Clients"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/clients/{id}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get an clients",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Client ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Update an client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Client ID"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Client Informations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Client_Data"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Delete an client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Client ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/plans": {
+      "get": {
+        "tags": [
+          "Plans"
+        ],
+        "summary": "List plans",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Plans"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Client": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "example": "Client"
+        },
+        "email": {
+          "type": "string",
+          "example": "client@email.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "(11) 99999-9999"
+        },
+        "state": {
+          "type": "string",
+          "example": "São Paulo"
+        },
+        "city": {
+          "type": "string",
+          "example": "São Paulo"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "2000-03-11"
+        },
+        "plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Plans"
+          }
+        }
+      }
+    },
+    "Client_Data": {
+      "type": "object",
+      "required": [
+        "title",
+        "email",
+        "phone",
+        "state",
+        "city",
+        "birthday"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Client"
+        },
+        "email": {
+          "type": "string",
+          "example": "client@email.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "(11) 99999-9999"
+        },
+        "state": {
+          "type": "string",
+          "example": "São Paulo"
+        },
+        "city": {
+          "type": "string",
+          "example": "São Paulo"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "2000-03-11"
+        },
+        "plans": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "Clients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Client"
+      }
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "example": "Plan"
+        },
+        "value": {
+          "type": "number",
+          "example": 209.32
+        }
+      }
+    },
+    "Plans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Plan"
+      }
+    }
+  }
+}

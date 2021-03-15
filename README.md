@@ -19,7 +19,7 @@ PS: Docker might take some secounds to build, if you see an error on the followi
 
 Run migrations to build DB
 ```bash
-  docker exec -it php php /var/www/html/artisan migrate
+  docker exec -it php php /var/www/html/artisan migrate --seed
 ```
 
 ## API Documentation

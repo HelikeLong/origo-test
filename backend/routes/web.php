@@ -13,6 +13,16 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => '/api', 'as' => 'api.'], function () use ($router) {
+    $router->group(['prefix' => '/clients', 'as' => 'clients.'], function () use ($router) {
+        $router->get('/', 'ClientController@all');
+        $router->post('/', 'ClientController@store');
+        $router->get('/{id}', 'ClientController@get');
+        $router->put('/{id}', 'ClientController@update');
+        $router->delete('/{id}', 'ClientController@delete');
+    });
+
+    $router->group(['prefix' => '/plans', 'as' => 'plans.'], function () use ($router) {
+        $router->get('/', 'PlanController@all');
+    });
 });
