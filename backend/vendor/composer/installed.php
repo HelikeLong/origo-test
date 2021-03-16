@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'c3109976fae4e7639b4d170c54868204b4175d4f',
+    'reference' => '17a45433fc14a6f4c00f7ce93851c1a1db3117a7',
     'name' => 'laravel/lumen',
   ),
   'versions' => 
@@ -417,7 +417,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'c3109976fae4e7639b4d170c54868204b4175d4f',
+      'reference' => '17a45433fc14a6f4c00f7ce93851c1a1db3117a7',
     ),
     'laravel/lumen-framework' => 
     array (
@@ -427,6 +427,15 @@
       array (
       ),
       'reference' => '6ed02d4d1a6e203b9e896bd105b2e838866f2951',
+    ),
+    'lcobucci/jwt' => 
+    array (
+      'pretty_version' => '3.3.3',
+      'version' => '3.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c1123697f6a2ec29162b82f170dd4a491f524773',
     ),
     'mockery/mockery' => 
     array (
@@ -465,6 +474,15 @@
       array (
         0 => '1.10.2',
       ),
+    ),
+    'namshi/jose' => 
+    array (
+      'pretty_version' => '7.2.3',
+      'version' => '7.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '89a24d7eb3040e285dd5925fcad992378b82bcff',
     ),
     'nesbot/carbon' => 
     array (
@@ -995,6 +1013,15 @@
       ),
       'reference' => '5232de97ee3b75b0360528dae24e73db49566ab1',
     ),
+    'symfony/polyfill-php56' => 
+    array (
+      'pretty_version' => 'v1.20.0',
+      'version' => '1.20.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675',
+    ),
     'symfony/polyfill-php72' => 
     array (
       'pretty_version' => 'v1.22.1',
@@ -1091,6 +1118,15 @@
       array (
       ),
       'reference' => '75a63c33a8577608444246075ea0af0d052e452a',
+    ),
+    'tymon/jwt-auth' => 
+    array (
+      'pretty_version' => '1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e588cb719539366c0e2f6017f975379cb73e9680',
     ),
     'vlucas/phpdotenv' => 
     array (

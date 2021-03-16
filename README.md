@@ -22,6 +22,11 @@ Run migrations to build DB
   docker exec -it php php /var/www/html/artisan migrate --seed
 ```
 
+Generate API Auth JWT Key
+```bash
+    php artisan jwt:secret 
+```
+
 ## API Documentation
 
 Import the `./api.json` at Postman, Insomnia etc, to check project's APIs.

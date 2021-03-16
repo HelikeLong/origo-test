@@ -43,10 +43,12 @@ class ClientController extends Controller {
         $this->validate($request,$this->_model::$rules);
         if ($client = $this->_model::create($request->all())) {
             if ($request->has('plans')) {
-                $client->plans()->sync($request->get('plans'));
+                $client->plans()->sync(array_map(function ($plan) { return $plan['id']; }, $request->get('plans') ));
             }
+            return $this->successResponse($client, Response::HTTP_CREATED);
+        } else {
+            return $this->errorResponse(Response::HTTP_CONFLICT, 'Email já cadastrado');
         }
-        return $this->successResponse($client, Response::HTTP_CREATED);
     }
 
     /**
@@ -63,7 +65,7 @@ class ClientController extends Controller {
             return $this->errorResponse(Response::HTTP_NOT_FOUND);
         }
         $model->update($request->all());
-        $model->plans()->sync($request->get('plans'));
+        $model->plans()->sync(array_map(function ($plan) { return $plan['id']; }, $request->get('plans') ));
         return $this->successResponse($model);
     }
 

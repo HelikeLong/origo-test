@@ -31,7 +31,7 @@ class Client extends Model
     public static $rules = [
         "name" => "required|max:150",
         "email" => "required|email|max:100",
-        "phone" => "required|regex:/^(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})$/i|max:15",
+        "phone" => "required|max:15",
         "state" => "required|max:50",
         "city" => "required|max:100",
         "birthday" => "required|date"

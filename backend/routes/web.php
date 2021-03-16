@@ -14,7 +14,13 @@
 */
 
 $router->group(['prefix' => '/api', 'as' => 'api.'], function () use ($router) {
-    $router->group(['prefix' => '/clients', 'as' => 'clients.'], function () use ($router) {
+    $router->post('/auth/login', 'AuthController@login');
+
+    $router->group(['prefix' => '/auth', 'as' => 'auth.', 'middleware' => 'auth'], function () use ($router) {
+        $router->post('/logout', 'AuthController@logout');
+    });
+
+    $router->group(['prefix' => '/clients', 'as' => 'clients.', 'middleware' => 'auth'], function () use ($router) {
         $router->get('/', 'ClientController@all');
         $router->post('/', 'ClientController@store');
         $router->get('/{id}', 'ClientController@get');
@@ -22,7 +28,7 @@ $router->group(['prefix' => '/api', 'as' => 'api.'], function () use ($router) {
         $router->delete('/{id}', 'ClientController@delete');
     });
 
-    $router->group(['prefix' => '/plans', 'as' => 'plans.'], function () use ($router) {
+    $router->group(['prefix' => '/plans', 'as' => 'plans.', 'middleware' => 'auth'], function () use ($router) {
         $router->get('/', 'PlanController@all');
     });
 });
