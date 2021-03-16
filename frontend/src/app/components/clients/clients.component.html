@@ -1,0 +1,17 @@
+<div class="p-3 container">
+  <nav class="navbar navbar-dark bg-success">
+        <span class="navbar-brand">Origo - Tech Test</span>
+        <button type="button" class="btn btn-outline-light float-right" (click)="logout()">Sair</button>
+      </nav>
+  <div class="card">
+    <div class="card-body">
+      <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand">Clientes</span>
+        <button type="button" class="btn btn-outline-warning float-right" *ngIf="!showForm" (click)="toggleForm(true)">Novo cliente</button>
+        <button type="button" class="btn btn-outline-danger float-right" *ngIf="showForm" (click)="toggleForm(false)">Fechar</button>
+      </nav>
+      <app-clients-list *ngIf="!showForm" [clients]="clients" (onDelete)="delete($event)" (onEdit)="edit($event)"></app-clients-list>
+      <app-clients-form *ngIf="showForm" [client]="clientForm" (onSave)="save($event)"></app-clients-form>
+    </div>
+  </div>
+</div>

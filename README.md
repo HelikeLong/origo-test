@@ -24,7 +24,7 @@ Run migrations to build DB
 
 Generate API Auth JWT Key
 ```bash
-    php artisan jwt:secret 
+  php artisan jwt:secret 
 ```
 
 ## API Documentation

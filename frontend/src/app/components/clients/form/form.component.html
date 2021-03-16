@@ -1,0 +1,44 @@
+<form ngNativeValidate #form="ngForm" class="m-2" (ngSubmit)="save()">
+  <div class="form-row">
+    <input type="hidden" id="id" [(ngModel)]="client.id" name="id" *ngIf="client.id">
+    <div class="form-group col-md-6">
+      <label class="form-label" for="name">Nome *</label>
+      <input placeholder="Nome" type="text" id="name" class="form-control" required
+        [(ngModel)]="client.name" name="name">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="form-label" for="email">Email *</label>
+      <input placeholder="Email" type="email" id="email" class="form-control" required
+        [(ngModel)]="client.email" name="email">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="form-label" for="phone">Telefone *</label>
+      <input placeholder="Telefone" type="tel" id="phone" class="form-control" required
+        [(ngModel)]="client.phone" name="phone" mask="(00) 0000-0000?0">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="form-label" for="birthday">Aniversário *</label>
+      <input placeholder="Aniversário" type="date" id="birthday" class="form-control" required name="birthday"
+        [ngModel]="client.birthday | date: 'yyyy-MM-dd'" (ngModelChange)="client.birthday = $event">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="form-label" for="state">Estado *</label>
+      <input placeholder="Estado" type="text" id="state" class="form-control" required
+        [(ngModel)]="client.state" name="state">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="form-label" for="city">Cidade *</label>
+      <input placeholder="Cidade" type="text" id="city" class="form-control" required
+        [(ngModel)]="client.city" name="city">
+    </div>
+
+    <div class="form-group col-md-12">
+      <label class="form-label" for="plans">Planos *</label>
+      <ng-select [items]="plans" bindLabel="name" appendTo="body" multiple="true"
+                 [(ngModel)]="client.plans" name="plans" id="plans">
+    </ng-select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success btn-block">Salvar</button>
+  </div>
+</form>

@@ -16,7 +16,7 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        $data = json_decode(File::get('resources/seeds/clients.json'), true);
+        $data = json_decode(File::get('/var/www/html/resources/seeds/clients.json'), true);
         array_map(function ($arr) {
             $client = Client::create($arr);
             $client->plans()->attach(Plan::inRandomOrder()->first()->id);

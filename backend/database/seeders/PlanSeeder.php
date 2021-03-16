@@ -15,7 +15,7 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
-        $data = json_decode(File::get('resources/seeds/plans.json'), true);
+        $data = json_decode(File::get('/var/www/html/resources/seeds/plans.json'), true);
         array_map(function ($arr) {
             Plan::create($arr);
         }, $data);
